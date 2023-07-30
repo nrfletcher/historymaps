@@ -1,2 +1,2 @@
-# historymaps
-A web application that showcases maps highlighting important events throughout history
+# HistoryMaps
+HistoryMaps is a web application that shows important events in history and where they took place
