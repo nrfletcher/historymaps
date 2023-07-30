@@ -8,10 +8,11 @@ export default function Home() {
   return (
     <div>
       <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-    <HomePage></HomePage>
+        <title>HistoryMaps</title>
+        <link rel="icon" href="/hmbg.ico" />
+        <meta charset="UTF-8"></meta>
+      </Head>
+      <HomePage></HomePage>
     </div>
   )
 }

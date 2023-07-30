@@ -1,29 +1,41 @@
-import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 
 export default function HomePage() {
     return (
     <div className={styles.container}>
-        <Header></Header>
+        <nav className={styles.navbar}>
+            <div className={styles.logo}>
+                <img src='/hmbg.png'></img>
+            </div>
+            <h3>HistoryMaps</h3>
+            <div className={styles.navlinks}>
+                <Link href="/">Home</Link>
+                <Link href="/about">Maps</Link>
+                <Link href="/contact">Login</Link>
+                <Link href="/contact">About</Link>
+                <Link href="/contact">Contact</Link>
+            </div>
+        </nav>
 
         <main>
             <h1 className={styles.title}>
-                Welcome to <Link href="/map">other page</Link>
+                Welcome to HistoryMaps &#128204; &#127757;
             </h1>
 
             <p className={styles.description}>
-                Get started by editing <code>pages/index.js</code>
+                Select a continent of interest to get started on your geographic tour of history!
             </p>
 
             <div className={styles.grid}>
                 <a href="https://nextjs.org/docs" className={styles.card}>
-                <h3>Documentation &rarr;</h3>
-                <p>Find in-depth information about Next.js features and API.</p>
+                <h3>North America &rarr;</h3>
+                <p>From early colonialism to the 21st United States</p>
                 </a>
 
                 <a href="https://nextjs.org/learn" className={styles.card}>
-                <h3>Learn &rarr;</h3>
+                <h3>South America &rarr;</h3>
                 <p>Learn about Next.js in an interactive course with quizzes!</p>
                 </a>
 
@@ -31,7 +43,7 @@ export default function HomePage() {
                 href="https://github.com/vercel/next.js/tree/master/examples"
                 className={styles.card}
                 >
-                <h3>Examples &rarr;</h3>
+                <h3>Asia &rarr;</h3>
                 <p>Discover and deploy boilerplate example Next.js projects.</p>
                 </a>
 
@@ -39,15 +51,33 @@ export default function HomePage() {
                 href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
                 className={styles.card}
                 >
-                <h3>Deploy &rarr;</h3>
+                <h3>Europe &rarr;</h3>
+                <p>
+                    Instantly deploy your Next.js site to a public URL with Vercel.
+                </p>
+                </a>
+
+                <a
+                href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+                className={styles.card}
+                >
+                <h3>Africa &rarr;</h3>
+                <p>
+                    Instantly deploy your Next.js site to a public URL with Vercel.
+                </p>
+                </a>
+
+                <a
+                href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+                className={styles.card}
+                >
+                <h3>Australia &rarr;</h3>
                 <p>
                     Instantly deploy your Next.js site to a public URL with Vercel.
                 </p>
                 </a>
             </div>
         </main>
-
-        
 
         <style jsx global>{`
         html,
