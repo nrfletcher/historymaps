@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Map.module.css';
 import Link from 'next/link';
 
 export default function MapPage() {
@@ -44,11 +44,18 @@ export default function MapPage() {
 }
 
 function Map() {
-  const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
+  const center = useMemo(() => ({ lat: 45, lng: -75 }), []);
+  const mapID = useMemo(() => ("ade6bb28a6d16224"), []);
 
   return (
-    <GoogleMap zoom={10} center={center} mapContainerClassName={styles.map}>
-      <Marker position={center} />
+    <GoogleMap 
+        zoom={10} 
+        center={center} 
+        mapContainerClassName={styles.map}
+        options={{ mapId: {mapID}}}>
+      <Marker 
+        position={center}
+        title="Placeholder" />
     </GoogleMap>
   );
 }
