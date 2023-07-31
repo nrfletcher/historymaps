@@ -1,3 +1,4 @@
+import Slider from '../components/SimpleSlider';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 
@@ -11,12 +12,14 @@ export default function Contact() {
                 <h3>HistoryMaps</h3>
                 <div className={styles.navlinks}>
                     <Link href="/">Home</Link>
-                    <Link href="/MapPage">Maps</Link>
+                    <Link href="/DefaultMap">Maps</Link>
                     <Link href="/Login">Login</Link>
                     <Link href="/About">About</Link>
                     <Link href="/Contact">Contact</Link>
                 </div>
             </nav>
+
+            <Slider></Slider>
 
             <style jsx global>{`
             html,

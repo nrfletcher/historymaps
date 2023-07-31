@@ -6,9 +6,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@babel/runtime": "^7.22.6",
     "@react-google-maps/api": "^2.19.2",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-slider": "^2.0.6"
   }
 }

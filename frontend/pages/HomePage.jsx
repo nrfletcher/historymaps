@@ -12,7 +12,7 @@ export default function HomePage() {
                 <h3>HistoryMaps</h3>
                 <div className={styles.navlinks}>
                     <Link href="/">Home</Link>
-                    <Link href="/MapPage">Maps</Link>
+                    <Link href="/DefaultMap">Maps</Link>
                     <Link href="/Login">Login</Link>
                     <Link href="/About">About</Link>
                     <Link href="/Contact">Contact</Link>
@@ -29,53 +29,53 @@ export default function HomePage() {
                 </p>
 
                 <div className={styles.grid}>
-                    <a href="https://nextjs.org/docs" className={styles.card}>
+                    <Link href="/NorthAmericaMap" className={styles.card}>
                     <h3>North America &rarr;</h3>
                     <p>From early colonialism to the 21st century United States!</p>
-                    </a>
+                    </Link>
 
-                    <a href="https://nextjs.org/learn" className={styles.card}>
+                    <Link href="/SouthAmericaMap" className={styles.card}>
                     <h3>South America &rarr;</h3>
                     <p>From Spanish independence to the fall of the Aztecs!</p>
-                    </a>
+                    </Link>
 
-                    <a
-                    href="https://github.com/vercel/next.js/tree/master/examples"
+                    <Link
+                    href="/AsiaMap"
                     className={styles.card}
                     >
                     <h3>Asia &rarr;</h3>
                     <p>From the start of the Qin dynasty to the Mongol Empire!</p>
-                    </a>
+                    </Link>
 
-                    <a
-                    href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+                    <Link
+                    href="/EuropeMap"
                     className={styles.card}
                     >
                     <h3>Europe &rarr;</h3>
                     <p>
                         From the Renaissance to historical World War II!
                     </p>
-                    </a>
+                    </Link>
 
-                    <a
-                    href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+                    <Link
+                    href="/AfricaMap"
                     className={styles.card}
                     >
                     <h3>Africa &rarr;</h3>
                     <p>
                         From the Pyramids to Kenyan independence!
                     </p>
-                    </a>
+                    </Link>
 
-                    <a
-                    href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+                    <Link
+                    href="/AustraliaMap"
                     className={styles.card}
                     >
                     <h3>Australia &rarr;</h3>
                     <p>
                         From British colonization to the Gold Rush!
                     </p>
-                    </a>
+                    </Link>
                 </div>
             </main>
 
