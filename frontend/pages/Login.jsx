@@ -18,6 +18,9 @@ export default function About() {
                 </div>
             </nav>
 
+            <h1>Work in progress...</h1>
+            <h1>Add OAuth so users can add their own events</h1>
+
             <style jsx global>{`
             html,
             body {

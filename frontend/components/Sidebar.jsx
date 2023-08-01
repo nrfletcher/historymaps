@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from '../styles/Sidebar.module.css';
 
 export default function Sidebar( {minSliderValue, setMinSliderValue, maxSliderValue, setMaxSliderValue, 
@@ -35,7 +34,7 @@ function DateSliders( {minSliderValue, maxSliderValue, handleMinSliderChange, ha
                 />
                 <br></br>
 
-                <h4 style={{color: '#ffb703'}}>{minSliderValue} CE</h4>
+                <h4 style={{color: '#fb8500'}}>{minSliderValue} CE</h4>
 
                 <label htmlFor="maxSlider"></label>
 
@@ -51,7 +50,7 @@ function DateSliders( {minSliderValue, maxSliderValue, handleMinSliderChange, ha
                 />
                 <br></br>
 
-                <h4 style={{color: '#ffb703'}}>{maxSliderValue} CE</h4>
+                <h4 style={{color: '#fb8500'}}>{maxSliderValue} CE</h4>
             </div>
         </div>
     )
@@ -61,10 +60,12 @@ function TypeBoxes( {checkedOptions, handleCheckboxChange} ) {
     return (
         <div className={styles.typescontainer}>
             <div className={styles.typeboxes}>
+
                 <h2 style={{fontSize: '30px', paddingLeft: '35px', color: '#fb8500'}}>Categories</h2>
-                <label>
+                
+                <label style={{color: '#fb8500'}}>
                 <input
-                    style={{marginTop: '10px', marginBottom: '10px', color: '#ffb703'}}
+                    style={{marginTop: '10px', marginBottom: '10px', color: '#fb8500'}}
                     type="checkbox"
                     name="battle"
                     value="battle"
@@ -74,7 +75,7 @@ function TypeBoxes( {checkedOptions, handleCheckboxChange} ) {
                 </label>
                 
                 
-                <label>
+                <label style={{color: '#fb8500'}}>
                 <input
                     style={{marginTop: '10px', marginBottom: '10px'}}
                     type="checkbox"
@@ -85,7 +86,7 @@ function TypeBoxes( {checkedOptions, handleCheckboxChange} ) {
                 /> Discovery
                 </label>
                 
-                <label>
+                <label style={{color: '#fb8500'}}>
                 <input
                     style={{marginTop: '10px', marginBottom: '10px'}}
                     type="checkbox"
@@ -95,7 +96,8 @@ function TypeBoxes( {checkedOptions, handleCheckboxChange} ) {
                     onChange={handleCheckboxChange}
                 /> Invention
                 </label>
-                <label>
+
+                <label style={{color: '#fb8500'}}>
                 <input
                     style={{marginTop: '10px', marginBottom: '10px'}}
                     type="checkbox"
@@ -105,7 +107,8 @@ function TypeBoxes( {checkedOptions, handleCheckboxChange} ) {
                     onChange={handleCheckboxChange}
                 /> Cultural
                 </label>
-                <label>
+
+                <label style={{color: '#fb8500'}}>
                 <input
                     style={{marginTop: '10px', marginBottom: '10px'}}
                     type="checkbox"
@@ -115,7 +118,8 @@ function TypeBoxes( {checkedOptions, handleCheckboxChange} ) {
                     onChange={handleCheckboxChange}
                 /> Famous Birth
                 </label>
-                <label>
+
+                <label style={{color: '#fb8500'}}>
                 <input
                     style={{marginTop: '10px', marginBottom: '10px'}}
                     type="checkbox"
@@ -125,7 +129,8 @@ function TypeBoxes( {checkedOptions, handleCheckboxChange} ) {
                     onChange={handleCheckboxChange}
                 /> Famous Death
                 </label>
-                <label>
+
+                <label style={{color: '#fb8500'}}>
                 <input
                     style={{marginTop: '10px', marginBottom: '10px'}}
                     type="checkbox"

@@ -18,6 +18,8 @@ export default function About() {
                 </div>
             </nav>
 
+            <h1>Eventually fill with small blurb</h1>
+
             <style jsx global>{`
             html,
             body {

@@ -118,7 +118,7 @@
     margin: 0;
 
     font: inherit;
-    color: #ffb703;
+    color: #fb8500;
     width: 1.15em;
     height: 1.15em;
     border: 0.15em solid currentColor;
@@ -139,7 +139,7 @@
     transition: 120ms transform ease-in-out;
     box-shadow: inset 1em 1em var(--form-control-color);
     /* Windows High Contrast Mode */
-    background-color: #ffb703;
+    background-color: #fb8500;
 }
 
 .verticalnavbar input[type="checkbox"]:checked::before {

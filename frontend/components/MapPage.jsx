@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { GoogleMap, useLoadScript, OverlayView, InfoWindow } from "@react-google-maps/api";
+import { GoogleMap, useLoadScript, OverlayView, InfoWindow, Marker } from "@react-google-maps/api";
 import styles from '../styles/Map.module.css';
 import Link from 'next/link';
 import Sidebar from "./Sidebar";
@@ -54,11 +54,35 @@ export default function MapPage({ location }) {
   }
   //--------------------------------------------------------------
 
+  const [markers, setMarkers] = useState([
+    { id: 1, 
+      pos: {lat: -13.906519877130052, lng:  -59.984371304197275},
+      img: 'battle.png',
+      title: 'Battle of Waterloo',
+      date: '18 June, 1815',
+      desc: 'The Battle of Waterloo, fought on June 18, 1815, was a pivotal event in European history that marked the end of the Napoleonic era and Napoleon Bonaparte\'s military ambitions. It took place near the town of Waterloo in present-day Belgium. The battle was a culmination of Napoleon\'s attempt to regain power after his earlier exile to the island of Elba.',
+      wiki: 'https://en.wikipedia.org/wiki/Battle_of_Waterloo', 
+      isOpen: false,
+    },
+    { id: 2, 
+      pos: {lat: -14.906519877130052, lng:  -57.984371304197275},
+      img: 'battle.png',
+      title: 'Battle of Waterloo',
+      date: '18 June, 1815',
+      desc: 'The Battle of Waterloo, fought on June 18, 1815, was a pivotal event in European history that marked the end of the Napoleonic era and Napoleon Bonaparte\'s military ambitions. It took place near the town of Waterloo in present-day Belgium. The battle was a culmination of Napoleon\'s attempt to regain power after his earlier exile to the island of Elba.',
+      wiki: 'https://en.wikipedia.org/wiki/Battle_of_Waterloo', 
+      isOpen: false,
+    }
+  ]);
+
   //-------- Custom marker logic
-  const [isInfoWindowOpen, setInfoWindowOpen] = useState(false);
-  const toggleInfoWindow = () => {
-    setInfoWindowOpen(!isInfoWindowOpen);
-  }
+  const toggleInfoWindow = (markerId) => {
+    setMarkers((prevMarkers) =>
+      prevMarkers.map((marker) =>
+        marker.id === markerId ? { ...marker, isOpen: !marker.isOpen } : marker
+      )
+    );
+  };
 
   if (!isLoaded) return <div>Loading...</div>;
 
@@ -95,28 +119,33 @@ export default function MapPage({ location }) {
             minZoom: 3,
             maxZoom: 12}}>
 
-          <OverlayView
-            position={center}
+          {markers.map((marker) => (
+            <OverlayView
+            key={marker.id}
+            position={marker.pos}
             mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
             >
             <div style={{ cursor: 'pointer' }}>
               <img
-                onClick={toggleInfoWindow}
-                src="/battle.png"
+                onClick={() => toggleInfoWindow(marker.id)}
+                src={marker.img}
                 alt="Custom Icon"
                 style={{ width: '40px', height: '40px' }}
               />
-              {isInfoWindowOpen && (
-              <InfoWindow onCloseClick={() => setInfoWindowOpen(false)} position={center}>
-                <div>
-                  <h3>Info Window Content</h3>
-                  <p>This is the content of the info window.</p>
-                </div>
-              </InfoWindow>
-            )}
-            </div>
-            
-          </OverlayView>
+              {marker.isOpen && (
+                <InfoWindow onCloseClick={() => toggleInfoWindow(marker.id)} position={marker.pos}>
+                  <div>
+                    <h2>{marker.title}</h2>
+                    <h3>{marker.date}</h3>
+                    <p style={{fontSize: '15px'}}>{marker.desc}</p>
+                    <a href={marker.wiki} style={{fontSize: '15px'}}>Wikipedia</a>
+                  </div>
+                </InfoWindow>
+              )}
+              </div>
+            </OverlayView>
+          ))}
+
         </GoogleMap>
 
         <style jsx global>{`
