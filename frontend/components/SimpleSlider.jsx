@@ -28,7 +28,8 @@ export default function Slider() {
                 value={minSliderValue}
                 onChange={handleMinSliderChange}
                 />
-            
+                                <span>{maxSliderValue}</span>
+
                 <label htmlFor="maxSlider">Max Value:</label>
                 <input
                 type="range"
@@ -40,7 +41,7 @@ export default function Slider() {
                 value={maxSliderValue}
                 onChange={handleMaxSliderChange}
                 />
-                <span>{maxSliderValue}</span>
+                
                 <span>{minSliderValue}</span>
             </div>
         </div>

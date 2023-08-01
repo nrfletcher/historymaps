@@ -1,0 +1,158 @@
+.verticalnavbar {
+    background-color: #023047;
+    padding-top: 120px;
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    align-items: center;
+    z-index: 999;
+}
+
+.slidercontainer {
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.slidercontainer label {
+    margin-top: 25px;
+    display: inline-block;
+}
+
+.typescontainer {
+    display: block;
+    align-items: center;
+    padding-left: 40px;
+    
+}
+
+.typescontainer input {
+    padding-top: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+.verticalnavbar input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 13rem;
+}
+
+/* Removes default focus */
+.verticalnavbar input[type="range"]:focus {
+    outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+.verticalnavbar input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #ffb703;
+    border-radius: 0.5rem;
+    height: 0.5rem;  
+}
+
+/* slider thumb */
+.verticalnavbar input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -12px; /* Centers thumb on the track */
+
+    /*custom styles*/
+    background-color: #5cd5eb;
+    height: 2rem;
+    width: 1rem;
+}
+
+.verticalnavbar input[type="range"]:focus::-webkit-slider-thumb {   
+    border: 1px solid #053a5f;
+    outline: 3px solid #053a5f;
+    outline-offset: 0.125rem; 
+}
+
+/******** Firefox styles ********/
+/* slider track */
+.verticalnavbar input[type="range"]::-moz-range-track {
+    background-color: #053a5f;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+}
+
+/* slider thumb */
+.verticalnavbar input[type="range"]::-moz-range-thumb {
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0; /*Removes default border-radius that FF applies*/
+
+    /*custom styles*/
+    background-color: #8ecae6;
+    height: 2rem;
+    width: 1rem;
+}
+
+.verticalnavbar input[type="range"]:focus::-moz-range-thumb {
+    border: 1px solid #fb8500;
+    outline: 3px solid #fb8500;
+    outline-offset: 0.125rem; 
+}
+
+.verticalnavbar input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: var(--form-background);
+    /* Not removed via appearance */
+    margin: 0;
+
+    font: inherit;
+    color: #ffb703;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+
+    display: grid;
+    place-content: center;
+}
+
+.verticalnavbar input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    /* Windows High Contrast Mode */
+    background-color: #ffb703;
+}
+
+.verticalnavbar input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.verticalnavbar input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+}
+
+.verticalnavbar input[type="checkbox"]:disabled {
+--form-control-color: var(--form-control-disabled);
+    color: var(--form-control-disabled);
+    cursor: not-allowed;
+}
