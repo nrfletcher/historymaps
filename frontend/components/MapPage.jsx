@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { GoogleMap, useLoadScript, OverlayView, InfoWindow, Marker } from "@react-google-maps/api";
 import styles from '../styles/Map.module.css';
 import Link from 'next/link';
@@ -24,56 +24,85 @@ export default function MapPage({ location }) {
   const mapID = useMemo(() => ("ade6bb28a6d16224"), []);
   //-----------------------
 
-
-  // ---------- Checkboxes State
-  const [checkedOptions, setCheckedOptions] = useState([]);
-
-  const handleCheckboxChange = (event) => {
-    const value = event.target.value;
-    if (checkedOptions.includes(value)) {
-    // If the checkbox is already checked, remove it from the list
-    setCheckedOptions(checkedOptions.filter(option => option !== value));
-    } else {
-    // If the checkbox is unchecked, add it to the list
-    setCheckedOptions([...checkedOptions, value]);
-    }
-  };
-  //-------------------------
-
-
-  //------------------- Date Slider State ------------------------
-  const [minSliderValue, setMinSliderValue] = useState(0);
-  const [maxSliderValue, setMaxSliderValue] = useState(2023);
-
-  const handleMinSliderChange = (event) => {
-    setMinSliderValue(parseInt(event.target.value));
-  }
-
-  const handleMaxSliderChange = (event) => {
-    setMaxSliderValue(parseInt(event.target.value));
-  }
-  //--------------------------------------------------------------
-
   const [markers, setMarkers] = useState([
     { id: 1, 
       pos: {lat: -13.906519877130052, lng:  -59.984371304197275},
-      img: 'battle.png',
+      img: 'battle',
       title: 'Battle of Waterloo',
       date: '18 June, 1815',
+      year: 1815,
       desc: 'The Battle of Waterloo, fought on June 18, 1815, was a pivotal event in European history that marked the end of the Napoleonic era and Napoleon Bonaparte\'s military ambitions. It took place near the town of Waterloo in present-day Belgium. The battle was a culmination of Napoleon\'s attempt to regain power after his earlier exile to the island of Elba.',
       wiki: 'https://en.wikipedia.org/wiki/Battle_of_Waterloo', 
       isOpen: false,
     },
     { id: 2, 
       pos: {lat: -14.906519877130052, lng:  -57.984371304197275},
-      img: 'battle.png',
+      img: 'cultural',
       title: 'Battle of Waterloo',
-      date: '18 June, 1815',
+      date: '18 June, 1835',
+      year: 1835,
+      desc: 'The Battle of Waterloo, fought on June 18, 1815, was a pivotal event in European history that marked the end of the Napoleonic era and Napoleon Bonaparte\'s military ambitions. It took place near the town of Waterloo in present-day Belgium. The battle was a culmination of Napoleon\'s attempt to regain power after his earlier exile to the island of Elba.',
+      wiki: 'https://en.wikipedia.org/wiki/Battle_of_Waterloo', 
+      isOpen: false,
+    }
+    ,
+    { id: 3, 
+      pos: {lat: -18.906519877130052, lng:  -52.984371304197275},
+      img: 'birth',
+      title: 'Battle of Waterloo',
+      date: '18 June, 1825',
+      year: 1825,
       desc: 'The Battle of Waterloo, fought on June 18, 1815, was a pivotal event in European history that marked the end of the Napoleonic era and Napoleon Bonaparte\'s military ambitions. It took place near the town of Waterloo in present-day Belgium. The battle was a culmination of Napoleon\'s attempt to regain power after his earlier exile to the island of Elba.',
       wiki: 'https://en.wikipedia.org/wiki/Battle_of_Waterloo', 
       isOpen: false,
     }
   ]);
+
+  const [activeMarkers, setActiveMarkers] = useState([]);
+  const [checkedOptions, setCheckedOptions] = useState([]);
+  const [minSliderValue, setMinSliderValue] = useState(0);
+  const [maxSliderValue, setMaxSliderValue] = useState(2023);
+
+  const filterMarkers = () => {
+    const filteredMarkers = markers.filter((marker) => {
+      return (
+        marker.year <= maxSliderValue && marker.year >= minSliderValue && checkedOptions.includes(marker.img)
+      );
+    });
+    setActiveMarkers(filteredMarkers);
+  }
+
+  // ---------- Checkboxes State
+
+  const handleCheckboxChange = (event) => {
+    const value = event.target.value;
+
+    if (checkedOptions.includes(value)) {
+      // If the checkbox is already checked, remove it from the list
+
+      setCheckedOptions(checkedOptions.filter(option => option !== value));
+    } else {
+      // If the checkbox is unchecked, add it to the list
+      setCheckedOptions([...checkedOptions, value]);
+      console.log(checkedOptions);
+    }
+
+    filterMarkers();
+  };
+  //-------------------------
+
+  //------------------- Date Slider State ------------------------
+
+  const handleMinSliderChange = (event) => {
+    setMinSliderValue(parseInt(event.target.value));
+    filterMarkers();
+  }
+
+  const handleMaxSliderChange = (event) => {
+    setMaxSliderValue(parseInt(event.target.value));
+    filterMarkers();
+  }
+  //--------------------------------------------------------------
 
   //-------- Custom marker logic
   const toggleInfoWindow = (markerId) => {
@@ -119,31 +148,40 @@ export default function MapPage({ location }) {
             minZoom: 3,
             maxZoom: 12}}>
 
-          {markers.map((marker) => (
-            <OverlayView
-            key={marker.id}
-            position={marker.pos}
-            mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-            >
-            <div style={{ cursor: 'pointer' }}>
-              <img
-                onClick={() => toggleInfoWindow(marker.id)}
-                src={marker.img}
-                alt="Custom Icon"
-                style={{ width: '40px', height: '40px' }}
-              />
-              {marker.isOpen && (
-                <InfoWindow onCloseClick={() => toggleInfoWindow(marker.id)} position={marker.pos}>
-                  <div>
-                    <h2>{marker.title}</h2>
-                    <h3>{marker.date}</h3>
-                    <p style={{fontSize: '15px'}}>{marker.desc}</p>
-                    <a href={marker.wiki} style={{fontSize: '15px'}}>Wikipedia</a>
-                  </div>
-                </InfoWindow>
-              )}
-              </div>
-            </OverlayView>
+            {markers.filter((marker) => {
+              return (
+                marker.year <= maxSliderValue &&
+                marker.year >= minSliderValue &&
+                checkedOptions.includes(marker.img)
+              );
+            })
+            .map((marker) => (
+              <OverlayView
+                key={marker.id}
+                position={marker.pos}
+                mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+              >
+                <div style={{ cursor: 'pointer' }}>
+                  <img
+                    onClick={() => toggleInfoWindow(marker.id)}
+                    src={marker.img + '.png'}
+                    alt="Custom Icon"
+                    style={{ width: '40px', height: '40px' }}
+                  />
+                  {marker.isOpen && (
+                    <InfoWindow onCloseClick={() => toggleInfoWindow(marker.id)} position={marker.pos}>
+                      <div>
+                        <h2>{marker.title}</h2>
+                        <h3>{marker.date}</h3>
+                        <p style={{ fontSize: '15px' }}>{marker.desc}</p>
+                        <a href={marker.wiki} style={{ fontSize: '15px' }}>
+                          Wikipedia
+                        </a>
+                      </div>
+                    </InfoWindow>
+                  )}
+                </div>
+              </OverlayView>
           ))}
 
         </GoogleMap>
