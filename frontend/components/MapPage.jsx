@@ -58,6 +58,15 @@ export default function MapPage({ location }) {
     }
   ]);
 
+  const [apiMarkers, setApiMarkers] = useState([]);
+  const fetchMarkers = async () => {
+    const response = await fetch("http://localhost:8080/history/markers");
+    const data = await response.json();
+    setApiMarkers(data);
+  }
+  console.log(apiMarkers);
+  console.log(markers);
+
   const [activeMarkers, setActiveMarkers] = useState([]);
   const [checkedOptions, setCheckedOptions] = useState([]);
   const [minSliderValue, setMinSliderValue] = useState(0);

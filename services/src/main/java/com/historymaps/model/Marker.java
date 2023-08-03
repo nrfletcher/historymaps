@@ -3,7 +3,7 @@ package com.historymaps.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "history")
+@Table(name = "markers")
 public class Marker {
 
     @Id
@@ -28,20 +28,22 @@ public class Marker {
     @Column(name = "year")
     private int year;
 
-    @Column(name = "desc")
-    private String desc;
+    @Column(name = "description", length = 1000)
+    private String description;
 
     @Column(name = "wiki")
     private String wiki;
 
-    public Marker(String latitude, String longitude, String img, String title, String date, int year, String desc, String wiki) {
+    public Marker() {}
+
+    public Marker(String latitude, String longitude, String img, String title, String date, int year, String description, String wiki) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.img = img;
         this.title = title;
         this.date = date;
         this.year = year;
-        this.desc = desc;
+        this.description = description;
         this.wiki = wiki;
     }
 
@@ -101,12 +103,12 @@ public class Marker {
         this.year = year;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getWiki() {
@@ -127,7 +129,7 @@ public class Marker {
                 ", title='" + title + '\'' +
                 ", date='" + date + '\'' +
                 ", year=" + year +
-                ", desc='" + desc + '\'' +
+                ", desc='" + description + '\'' +
                 ", wiki='" + wiki + '\'' +
                 '}';
     }

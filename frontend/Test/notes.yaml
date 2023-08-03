@@ -1,0 +1,46 @@
+Experience:
+  NSWCDD:
+    * Reduced app network traffic by 50% utilizing VMWare and vSphere to eleminate unneccessary bandwidth usage
+    * Built standalone UI features for app using JavaFX, FXML, and CSS allowing users to easily navigate system
+    * Utilized Bash scripts to automate software deployment and configurations of Red Hat Linux machines
+    * Worked in an agile environment of 8 developers utilizing Jira to perform spring planning and daily standups
+    * Modernized codebase using SonarQube to address OWASP Top 10 security flaws and introduced JUnit tests
+    * Upgraded outdated CI/CD process to utilize GitLab, Gradle, and Jenkins to build, test, and package code
+  VRE:
+    * Wrote PowerShell scripts for querying and organizing employee data used in cybersecurity audits
+    • Assisted Network Engineer in installing, managing, and replacing Cisco switches, security appliances, and servers
+    • Performed maintenance on switches and crimping of CAT6 cable for organizing company networking layout
+    • Helped close over 100 help desk tickets involving shell scripting, software troubleshooting, and cybersecurity
+    • Assessed and fixed technical issues in the Microsoft ecosystem including SharePoint, Office Suite, and OneDrive
+    • Set up user stations and assisted Systems Engineer in rolling out software using auto-deployment (Autopilot)
+    • Maintained and performed troubleshooting in Azure virtual machines on Windows and Linux environments
+Projects:
+  HistoryMaps:
+    3 lines maybe 2 lines
+  Trivia Bot:
+    3 lines maybe 2 lines
+    • Built a Python Discord bot using the Discord.py and OpenTrivia APIs letting users answer questions for points
+    • Created PyQt GUI app to communicate with client utilizing sockets and multithreading for seamless connection
+    • Used a MySQL server to store and update user data for leaderboards and query user data used in bot commands
+    • Deployed in the cloud using Heroku which allows the bot to run without needing a local script to operate
+  SocketTalk:
+    2 lines 
+    • Utilized socket programming and multi-threading to let multiple users interact in real time over a network
+    • Built a JavaFX application to make UI visually appealing and easier to interact with
+    • Added additional styling using CSS and BootstrapFX to provide a modern look
+  Chess:
+    2 lines
+    • Imported, cleaned, and stored data for training and testing using Pandas
+    • Trained a model to make predictions of what genre of music a person is likely to listen to based off age and gender
+    • Utilized Graphviz to visualize trends of data in a visual graph format
+  Engineering Club:
+    2 lines
+    • Collaborated with 20+ students in Engineering Club to plan and develop a rover that maps out school campus
+    • Utilized Python OpenCV library to store campus map data and communicate with microcontroller
+    • Connected and programmed an Arduino microcontroller in C++ to process data from distance sensors
+  CarCompare:
+    2 lines
+    Created a web-application which allows users to choose vehicle makes and models and compare specifications
+    • Built a responsive, minimalist front-end with React.js/HTML/CSS and Bootstrap for additional styling
+    • Created a REST API using Spring Web and JPA to make HTTP requests performing CRUD operations
+    • Utilized a PostgreSQL database for storing data points such as make, model, horsepower, and cost

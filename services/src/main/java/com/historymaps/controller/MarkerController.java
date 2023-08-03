@@ -48,7 +48,7 @@ public class MarkerController {
     public ResponseEntity<Marker> createMarker(@RequestBody Marker marker) {
         try {
             Marker _marker = markerRepository
-                    .save(new Marker(marker.getLatitude(), marker.getLongitude(), marker.getImg(), marker.getTitle(), marker.getDate(), marker.getYear(), marker.getDesc(), marker.getWiki()));
+                    .save(new Marker(marker.getLatitude(), marker.getLongitude(), marker.getImg(), marker.getTitle(), marker.getDate(), marker.getYear(), marker.getDescription(), marker.getWiki()));
             return new ResponseEntity<>(_marker, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -62,7 +62,7 @@ public class MarkerController {
         if (markerData.isPresent()) {
             Marker _marker = markerData.get();
             _marker.setDate(marker.getDate());
-            _marker.setDesc(marker.getDesc());
+            _marker.setDescription(marker.getDescription());
             _marker.setYear(marker.getYear());
             _marker.setImg(marker.getImg());
             _marker.setLatitude(marker.getLatitude());
