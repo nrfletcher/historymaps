@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Contact.module.css';
 import Link from 'next/link';
 
 export default function Contact() {
@@ -14,11 +14,23 @@ export default function Contact() {
                     <Link href="/DefaultMap">Maps</Link>
                     <Link href="/Login">Login</Link>
                     <Link href="/About">About</Link>
-                    <Link href="/Contact">Contact</Link>
                 </div>
             </nav>
 
-            <h1>If you have any suggestions or questions you can reach me at:</h1>
+            <div className={styles.items}>
+                <h1>Curious how this project was built?</h1>
+                <h2>This app was built with Next.js, React.js, and the Google Maps API. If you're 
+                curious to see how to utilize the Google Maps API, you can check out the source code  <a href='https://github.com/nrfletcher/historymaps'>here</a></h2>
+
+                <h1>What is HistoryMaps?</h1>
+                <h2>HistoryMaps is meant to be an informative way to experience history geographically.</h2>
+                <h1>Why?</h1>
+                <h2>So much of history is determined by where things happened, and oftentimes 
+                    locations of where events occured reveal much to us about how certain things unfolded.</h2>
+                <h1>What things can be learned by comparing and contrasting geographic aspects of history?</h1>
+                <h2>The development and downfall of civilizations, the ways in which cultures 
+                    trade and assimilate values, and political boundaries, all shape history simply by proximity.</h2>
+            </div>
 
             <style jsx global>{`
             html,

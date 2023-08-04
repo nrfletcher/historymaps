@@ -15,7 +15,6 @@ export default function HomePage() {
                     <Link href="/DefaultMap">Maps</Link>
                     <Link href="/Login">Login</Link>
                     <Link href="/About">About</Link>
-                    <Link href="/Contact">Contact</Link>
                 </div>
             </nav>
 

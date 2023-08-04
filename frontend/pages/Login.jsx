@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css';
+import styles from '../styles/About.module.css';
 import Link from 'next/link';
 
 export default function About() {
@@ -14,12 +14,15 @@ export default function About() {
                     <Link href="/DefaultMap">Maps</Link>
                     <Link href="/Login">Login</Link>
                     <Link href="/About">About</Link>
-                    <Link href="/Contact">Contact</Link>
                 </div>
             </nav>
 
-            <h1>Work in progress...</h1>
-            <h1>Add OAuth so users can add their own events</h1>
+            <div className={styles.items}>
+                <h1>Work in progress...</h1>
+                <h2>Future development goal is to add the ability for users to add their own events when logged in with an account</h2>
+
+                
+            </div>
 
             <style jsx global>{`
             html,

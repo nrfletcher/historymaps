@@ -60,22 +60,21 @@ height: 100vh;
 }
 
 .items {
-  padding-top: 100px;
-  margin-bottom: 100px;
+  padding-top: 60px;
   display: flex;
   flex-direction: column; /* Set the items as a column flex container */
   align-items: center;
-  max-width: 1000px;
+  max-width: 1100px;
 }
 
 .items h1 {
   text-align: center;
+  color: #fb8500;
+  text-shadow: 2px 2px #0066ff;
 }
 
-.question {
-
-}
-
-.answer {
-
+.items h2 {
+  text-align: center;
+  color: #000000;
+  text-shadow: 1px 1px #0066ff;
 }
