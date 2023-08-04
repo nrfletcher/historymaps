@@ -18,7 +18,8 @@ export default function Contact() {
                 </div>
             </nav>
 
-            <h1>Just add some basic links or something</h1>
+            <h1>If you have any suggestions or questions you can reach me at:</h1>
+
             <style jsx global>{`
             html,
             body {

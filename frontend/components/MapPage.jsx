@@ -4,13 +4,13 @@ import styles from '../styles/Map.module.css';
 import Link from 'next/link';
 import Sidebar from "./Sidebar";
 
-export default function MapPage({ location }) {
+export default function MapPage({ location, data }) {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
   });
 
-  //---------- Map Location Logic
   const mapLocations = new Map();
+
   mapLocations.set('southAmerica', [-13.906519877130052, -59.984371304197275]);
   mapLocations.set('northAmerica', [40.60315457242338, -97.37740376299539]);
   mapLocations.set('australia', [-24.037697935179125, 134.7771056047168]);
@@ -18,54 +18,17 @@ export default function MapPage({ location }) {
   mapLocations.set('asia', [43.26254029649319, 105.1778106409575]);
   mapLocations.set('europe', [49.85543848942511, 12.054188858149995]);
   mapLocations.set('default', [-16.077996844484463, -59.189920161089205]);
+  
   const latitude = mapLocations.get(location)[0];
   const longitude = mapLocations.get(location)[1];
   const center = useMemo(() => ({ lat: latitude, lng: longitude }), []);
   const mapID = useMemo(() => ("ade6bb28a6d16224"), []);
-  //-----------------------
 
-  const [markers, setMarkers] = useState([
-    { id: 1, 
-      pos: {lat: -13.906519877130052, lng:  -59.984371304197275},
-      img: 'battle',
-      title: 'Battle of Waterloo',
-      date: '18 June, 1815',
-      year: 1815,
-      desc: 'The Battle of Waterloo, fought on June 18, 1815, was a pivotal event in European history that marked the end of the Napoleonic era and Napoleon Bonaparte\'s military ambitions. It took place near the town of Waterloo in present-day Belgium. The battle was a culmination of Napoleon\'s attempt to regain power after his earlier exile to the island of Elba.',
-      wiki: 'https://en.wikipedia.org/wiki/Battle_of_Waterloo', 
-      isOpen: false,
-    },
-    { id: 2, 
-      pos: {lat: -14.906519877130052, lng:  -57.984371304197275},
-      img: 'cultural',
-      title: 'Battle of Waterloo',
-      date: '18 June, 1835',
-      year: 1835,
-      desc: 'The Battle of Waterloo, fought on June 18, 1815, was a pivotal event in European history that marked the end of the Napoleonic era and Napoleon Bonaparte\'s military ambitions. It took place near the town of Waterloo in present-day Belgium. The battle was a culmination of Napoleon\'s attempt to regain power after his earlier exile to the island of Elba.',
-      wiki: 'https://en.wikipedia.org/wiki/Battle_of_Waterloo', 
-      isOpen: false,
-    }
-    ,
-    { id: 3, 
-      pos: {lat: -18.906519877130052, lng:  -52.984371304197275},
-      img: 'birth',
-      title: 'Battle of Waterloo',
-      date: '18 June, 1825',
-      year: 1825,
-      desc: 'The Battle of Waterloo, fought on June 18, 1815, was a pivotal event in European history that marked the end of the Napoleonic era and Napoleon Bonaparte\'s military ambitions. It took place near the town of Waterloo in present-day Belgium. The battle was a culmination of Napoleon\'s attempt to regain power after his earlier exile to the island of Elba.',
-      wiki: 'https://en.wikipedia.org/wiki/Battle_of_Waterloo', 
-      isOpen: false,
-    }
-  ]);
+  const [markers, setMarkers] = useState();
 
-  const [apiMarkers, setApiMarkers] = useState([]);
-  const fetchMarkers = async () => {
-    const response = await fetch("http://localhost:8080/history/markers");
-    const data = await response.json();
-    setApiMarkers(data);
-  }
-  console.log(apiMarkers);
-  console.log(markers);
+  useEffect(() => {
+    setMarkers(data);
+  }, [data]);
 
   const [activeMarkers, setActiveMarkers] = useState([]);
   const [checkedOptions, setCheckedOptions] = useState([]);
@@ -81,26 +44,18 @@ export default function MapPage({ location }) {
     setActiveMarkers(filteredMarkers);
   }
 
-  // ---------- Checkboxes State
-
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
 
     if (checkedOptions.includes(value)) {
-      // If the checkbox is already checked, remove it from the list
-
       setCheckedOptions(checkedOptions.filter(option => option !== value));
     } else {
-      // If the checkbox is unchecked, add it to the list
       setCheckedOptions([...checkedOptions, value]);
       console.log(checkedOptions);
     }
 
     filterMarkers();
   };
-  //-------------------------
-
-  //------------------- Date Slider State ------------------------
 
   const handleMinSliderChange = (event) => {
     setMinSliderValue(parseInt(event.target.value));
@@ -111,9 +66,7 @@ export default function MapPage({ location }) {
     setMaxSliderValue(parseInt(event.target.value));
     filterMarkers();
   }
-  //--------------------------------------------------------------
-
-  //-------- Custom marker logic
+  
   const toggleInfoWindow = (markerId) => {
     setMarkers((prevMarkers) =>
       prevMarkers.map((marker) =>
@@ -182,7 +135,7 @@ export default function MapPage({ location }) {
                       <div>
                         <h2>{marker.title}</h2>
                         <h3>{marker.date}</h3>
-                        <p style={{ fontSize: '15px' }}>{marker.desc}</p>
+                        <p style={{ fontSize: '15px' }}>{marker.description}</p>
                         <a href={marker.wiki} style={{ fontSize: '15px' }}>
                           Wikipedia
                         </a>

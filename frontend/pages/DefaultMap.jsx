@@ -1,5 +1,7 @@
 import MapPage from "../components/MapPage";
+import MarkerData from "../components/DataFetch";
 
 export default function DefaultMap() {
-    return <MapPage location="default"></MapPage>
+    const data = MarkerData();
+    return <MapPage location="default" data={data}></MapPage>
 }
