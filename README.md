@@ -4,3 +4,4 @@ HistoryMaps is a web application that shows important events in history and wher
 * Frontend: React + Next.js + Jest
 * Backend: Spring Boot + JUnit
 * DB: PostgreSQL
+* Hosted: Uses AWS Amplify + Elastic Beanstalk + RDS + EC2
