@@ -1,7 +1,7 @@
 import MapPage from "../components/MapPage";
-import MarkerData from "../components/DataFetch";
+import DataStore from "../components/DataStore";
 
 export default function DefaultMap() {
-    const data = MarkerData();
+    const data = DataStore();
     return <MapPage location="default" data={data}></MapPage>
 }

@@ -134,7 +134,7 @@ export default function MapPage({ location, data }) {
                       <div>
                         <h2>{marker.title}</h2>
                         <h3>{marker.date}</h3>
-                        <p style={{ fontSize: '15px' }}>{marker.description}</p>
+                        <p style={{ fontSize: '15px' }}>{marker.desc}</p>
                         <a href={marker.wiki} style={{ fontSize: '15px' }}>
                           Wikipedia
                         </a>
