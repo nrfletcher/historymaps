@@ -11,6 +11,8 @@ HistoryMaps is a web application that shows important events in history and wher
 ## Purpose
 I created HistoryMaps for a combination of reasons; both due to my ongoing interest in geography and history, and my interest in learning full-stack development and cloud services
 <br />
+## Current Plan
+I would like to completely rewrite and add many features to this app in the future
 
 ![Alt text](https://github.com/nrfletcher/historymaps/blob/main/imgs/img2.png)
 
