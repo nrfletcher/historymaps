@@ -1,18 +1,34 @@
-# HistoryMaps
-HistoryMaps is a web application that shows important events in history and where they took place
+<div align="center">
+<a name="readme-top"></a>
+  
+# 🗺️ HistoryMaps
+Exploring the intersection between history and geography with an interactive webapp.
+
+</div>
 <br />
 
-![Alt text](https://github.com/nrfletcher/historymaps/blob/main/imgs/img1.png)
-## Tech Stack
-* Frontend: React + Next.js + Jest + Google Maps API
-* Backend: Spring Boot + JUnit
-* DB: PostgreSQL
-* Hosted: Uses AWS Amplify + Elastic Beanstalk + RDS + EC2
-## Purpose
-I created HistoryMaps for a combination of reasons; both due to my ongoing interest in geography and history, and my interest in learning full-stack development and cloud services
-<br />
-## Current Plan
-I would like to completely rewrite and add many features to this app in the future. For now, it is a work in progress.
+## ℹ️ About
+HistoryMaps is a webapp meant to make the discovery of geographical and historical elements engaging and educational. Currently, this app is under major construction due to other things getting in the way. 
 
-![Alt text](https://github.com/nrfletcher/historymaps/blob/main/imgs/img2.png)
+## 📜 How to run
+HistoryMaps can be found [at this site](https://main.d1p1ywbt8u61rz.amplifyapp.com/), but alternatively, to fork and customize, you can do the following
+```bash
+git clone
+
+cd historymaps
+
+npm run dev
+```
+And in a browser, nagivate to localhost:3000
+
+## 👨‍💻 Tech Stack
+- React.js
+- Next.js
+- Jest
+- Google Maps API
+- Java Spring Boot & JUnit
+- PostgreSQL
+- Hosted on AWS Amplify with Elastic Beanstalk
+- Utilizing RDS + EC2
+
 
